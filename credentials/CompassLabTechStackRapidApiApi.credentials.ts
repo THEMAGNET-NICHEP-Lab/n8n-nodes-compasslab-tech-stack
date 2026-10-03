@@ -1,4 +1,10 @@
-import type { IAuthenticateGeneric, Icon, ICredentialType, INodeProperties } from 'n8n-workflow';
+import type {
+	IAuthenticateGeneric,
+	Icon,
+	ICredentialTestRequest,
+	ICredentialType,
+	INodeProperties,
+} from 'n8n-workflow';
 
 export class CompassLabTechStackRapidApiApi implements ICredentialType {
 	name = 'compassLabTechStackRapidApiApi';
@@ -29,6 +35,15 @@ export class CompassLabTechStackRapidApiApi implements ICredentialType {
 			headers: {
 				'x-rapidapi-key': '={{$credentials.apiKey}}',
 			},
+		},
+	};
+
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: 'https://website-technology-stack-detector.p.rapidapi.com',
+			method: 'GET',
+			url: '/v1/tech-stack',
+			qs: { url: 'https://example.com', dns: false },
 		},
 	};
 }

@@ -30,7 +30,7 @@ Website Technology Stack Detector is sold on two marketplaces. Pick one; the nod
 2. Subscribe to the free BASIC plan and copy your `X-RapidAPI-Key` from the playground.
 3. In n8n, create a **CompassLab Tech Stack (RapidAPI) API** credential and paste the key.
 
-In the node, choose the same **Marketplace** as your credential. The credential test checks your key without using any of your quota.
+In the node, choose the same **Marketplace** as your credential. The credential test makes one small call to the API, which counts as one call on your plan.
 
 ## Usage
 
@@ -58,6 +58,7 @@ Built with the `n8n-node` CLI (n8n Nodes API version 1). No runtime dependencies
 
 ## Version history
 
+- **0.1.3**: the credential test is a request in the credential (n8n's standard).
 - **0.1.2**: each package now has its own repository.
 - **0.1.1**: node category renamed to n8n's current list.
 - **0.1.0**: first release.
