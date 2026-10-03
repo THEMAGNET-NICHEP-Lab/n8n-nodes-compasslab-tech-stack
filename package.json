@@ -1,0 +1,61 @@
+{
+	"name": "n8n-nodes-compasslab-tech-stack",
+	"version": "0.1.2",
+	"description": "n8n node for Website Technology Stack Detector (CompassLab): Detect the technologies behind any website: CMS, shop platform, analytics, CDN, hosting, payments and more.",
+	"license": "MIT",
+	"homepage": "https://github.com/THEMAGNET-NICHEP-Lab/n8n-nodes-compasslab-tech-stack#readme",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"compasslab",
+		"tech stack",
+		"technology lookup",
+		"website technology",
+		"cms detector",
+		"technographics"
+	],
+	"author": {
+		"name": "CompassLab",
+		"email": "jaouchamouad@proton.me"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/THEMAGNET-NICHEP-Lab/n8n-nodes-compasslab-tech-stack.git"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/CompassLabTechStackApiMarketApi.credentials.js",
+			"dist/credentials/CompassLabTechStackRapidApiApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/CompassLabTechStack/CompassLabTechStack.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "^0.50.4",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"node": "n8n-nodes-compasslab-tech-stack",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Sales",
+		"Development"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/THEMAGNET-NICHEP-Lab/n8n-nodes-compasslab-tech-stack#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/THEMAGNET-NICHEP-Lab/n8n-nodes-compasslab-tech-stack#readme"
+			}
+		]
+	}
+}

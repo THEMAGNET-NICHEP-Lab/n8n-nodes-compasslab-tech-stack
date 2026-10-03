@@ -1,0 +1,36 @@
+# Publishes this package to npm with provenance (required by n8n for verified community nodes) when its version
+# is not on npm yet. The code is generated in the CompassLab source repository; run this after a sync.
+#
+# npm authentication: the NPM_TOKEN repository secret (granular access token, read and write, bypass 2FA).
+name: Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install --no-audit --no-fund
+      - name: Publish if this version is new
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          name=$(node -p "require('./package.json').name")
+          version=$(node -p "require('./package.json').version")
+          if npm view "${name}@${version}" version >/dev/null 2>&1; then
+            echo "skip ${name}@${version} (already on npm)"
+          else
+            npm run release
+          fi
